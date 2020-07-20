@@ -6,3 +6,14 @@ $ git commit -m "name"
 $ git remote add origin xxxxxx(项目地址url)
 $ git push -u origin master
 这是git将本地文件部署到GitHub中的关键步骤，前提还需要配置SSH KEY
+
+1，git clone git@git.n.xxx.com:xxx/xxx.git
+
+如果报错clone指定分支是 git clone -b 指定分支名称  项目ssh地址
+2，cd web
+
+3，git fetch origin dev命令来把远程dev分支拉到本地
+
+4，checkout -b dev origin / dev在本地创建分支dev并切换到该分支
+
+5，git pull origin dev就可以把远程dev分支上的内容都拉取到本地了
