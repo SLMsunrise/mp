@@ -1,0 +1,43 @@
+总结各学习方法、技巧、技术
+
+1. for in循环 for(let i in arr){console.log(arr[i])}//输出数组中各值
+2. Array.from(new Set(zjtypeNuber));//使用es6的set方法对数组去重
+3. 绘制不同颜色的三角形且重合在一起
+   HTML:<i class="sjx"></i>
+   CSS:.sjx {
+          display: flex;
+          content: '';
+          border-width: 8px 8px 0px 8px;
+          border-style: solid;
+          border-color: #00ffff transparent transparent transparent;
+          width: 0;
+          height: 0;
+          position: relative;
+          margin: 0 auto;
+          margin-top: -5px;
+        }
+        .sjx::before {
+          display: flex;
+          content: '';
+          border-width: 5px 5px 0px 5px;
+          border-style: solid;
+          border-color: #000000 transparent transparent transparent;
+          width: 0;
+          height: 0;
+          position: relative;
+          margin-top: -8px;
+          margin-left: -5px;
+        }
+        .sjx::after {
+          display: flex;
+          content: '';
+          border-width: 2px 2px 0px 2px;
+          border-style: solid;
+          border-color: #00ffff transparent transparent transparent;
+          width: 0;
+          height: 0;
+          position: relative;
+          margin-top: -8px;
+          margin-left: -7px;
+        }
+4. 
