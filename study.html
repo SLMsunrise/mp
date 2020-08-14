@@ -1,7 +1,9 @@
 总结各学习方法、技巧、技术
 
 1. for in循环 for(let i in arr){console.log(arr[i])}//输出数组中各值
+
 2. Array.from(new Set(zjtypeNuber));//使用es6的set方法对数组去重
+
 3. 绘制不同颜色的三角形且重合在一起
    HTML:<i class="sjx"></i>
    CSS:.sjx {
@@ -40,10 +42,46 @@
           margin-top: -8px;
           margin-left: -7px;
         }
-4.         var arr = [1,2,3,4,5];
+
+4. 把数组变变为一个对象数组
+        var arr = [1,2,3,4,5];
         var sa={}
         arr.forEach(function(value,index) {
             sa[index] ={"hostIp":value};  
         })
         console.log(sa)
 
+5. 三元运算符前面是一个条件语句可以很长，根据不同的数据类型显示不同的图标
+   <span v-if="item.devInfo && item.devInfo.devType && item.devInfo.devType==1?true:false"><i class="engine shouji"></i></span>
+
+6. jquery中：向下展开div,并且执行一个回调函数
+   $(".flip").click(function(){
+    $(".panel").slideToggle("slow",function(){
+      alert("23");//
+    });
+  });
+
+7. jquery中：获取dom元素的值==>$("#slm");
+      text() - 设置或返回所选元素的文本内容
+      html() - 设置或返回所选元素的内容（包括 HTML 标记）
+      val() - 设置或返回表单字段的值
+      attr("属性字段") - 返回当前DOM的属性字段的值
+      attr("属性字段","新的值") - 设置新的属性值 
+      回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。
+
+8. jquery中：添加新的 HTML 内容==>$("#slm");
+      append() - 在被选元素的结尾插入内容
+      prepend() - 在被选元素的开头插入内容
+      after() - 在被选元素之后插入内容
+      before() - 在被选元素之前插入内容
+
+9. jquery中：删除HTML内容
+      remove() - 删除被选元素（及其子元素）
+      empty() - 从被选元素中删除子元素
+      区别是：remove是连自己都删，empty是除自己外的所有子元素
+
+10.jquery中：对css进行操作
+      addClass() - 向被选元素添加一个或多个类
+      removeClass() - 从被选元素删除一个或多个类
+      toggleClass() - 对被选元素进行添加/删除类的切换操作
+      css() - 设置或返回样式属性
