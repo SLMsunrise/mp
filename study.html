@@ -104,6 +104,48 @@
          flex-grow: <number>; //flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
      }
 
-13. 
-    
+13. div标签的全屏和退出全屏
+        （1）. dom元素添加事件
+         <div id="contain"></div>
+         JavaScript：
+         <button  οnclick="showFullScreen()">dom全屏</button>
+         <button  οnclick="exitFullScreen()">退出全屏</button>
+
+         vue:
+         <button  @click="showFullScreen()">全屏</button>
+         <button  @click="exitFullScreen()">退出全屏</button>
+            
+         （2）.获取当前元素进行dom全屏操作
+            function showFullScreen(){
+                   var full=document.getElementById("contain");
+                   launchIntoFullscreen(full);
+               }
+
+               function exitFullScreen() {
+                    exitFullscreen();
+               }
+         （3）.标签全屏和退出全屏方法封装
+            //div标签全屏方法
+            function launchIntoFullscreen(element) {
+                if(element.requestFullscreen){
+                    element.requestFullscreen();
+                } else if(element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if(element.webkitRequestFullscreen) {
+                    element.webkitRequestFullscreen();
+                } else if(element.msRequestFullscreen) {
+                    element.msRequestFullscreen();
+                }
+            }
+
+            //退出div标签全屏方法
+            function exitFullscreen() {
+                if(document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if(document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if(document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            }
 
