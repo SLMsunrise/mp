@@ -206,13 +206,27 @@
                 xmlhttp.responseText  //返回的数据集,返回如下的两种数据集
                 responseText	获得字符串形式的响应数据。
                 responseXML	获得 XML 形式的响应数据。
+
+19. jquery中： AJAX load()      //load() 方法从服务器加载数据，并把返回的数据放入被选元素中
+               $(selector).load(URL,data,callback);
+               回调函数可设置以下参数==>
+               responseTxt - 包含调用成功时的结果内容
+               statusTXT - 包含调用的状态
+               xhr - 包含 XMLHttpRequest 对象
             
+20. jquery中：get() 和 post() 方法用于通过 HTTP GET 或 POST 请求从服务器请求数据
+            (1) $.get(URL,callback)
+            (2) $.post(URL,data,callback);
             
-            
-            
-            
-            
-            
+21. jquery中:常用的方法集合
+    (1). bind() 方法向被选元素添加一个或多个事件处理程序，以及当事件发生时运行的函数,1.7版本之后建议使用on()方法
+    (2). blur() 当元素失去焦点时发生 blur 事件常和 focus()方法连用
+    (3). change() 元素的值改变时发生 change 事件,常用于表单字段 
+    (4). click() 触发 click(单击) 事件        
+    (5). dblclick() 双击事件
+    (6). event.currentTarget 属性是在事件冒泡阶段内的当前 DOM 元素，通常等于 this
+    (7). event.data 属性包含当前执行的处理程序被绑定时传递到事件方法的可选数据
+    (8). event.target 属性返回哪个 DOM 元素触发了事件       
             
             
             
