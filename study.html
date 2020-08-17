@@ -190,6 +190,22 @@
                     * 向服务器发送大量数据(POST 没有数据量限制)
                     * 发送包含未知字符的用户输入时,POST 比 GET 更稳定也更可靠
             
+            (3).xmlhttp.readyState==4 && xmlhttp.status==200            //该代码意味请求成功
+               onreadystatechange==>存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+               readyState存有XMLHttpRequest 的状态。从 0 到 4 发生变化。
+                  0: 请求未初始化
+                  1: 服务器连接已建立
+                  2: 请求已接收
+                  3: 请求处理中
+                  4: 请求已完成，且响应已就绪
+               status	
+                  200: "OK"
+                  404: 未找到页面
+
+            
+                xmlhttp.responseText  //返回的数据集,返回如下的两种数据集
+                responseText	获得字符串形式的响应数据。
+                responseXML	获得 XML 形式的响应数据。
             
             
             
