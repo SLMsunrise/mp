@@ -175,9 +175,30 @@
             not()       //返回不匹配标准的所有元素
             
 18. jquery中：ajax==>在不重载整个网页的情况下，AJAX 通过后台加载数据，并在网页上进行显示
-            (1).var xmlhttp;
+            (1).var xmlhttp;                       //创建兼容各版本的Ajax请求对象
                if (window.XMLHttpRequest){      
-                     xmlhttp=new XMLHttpRequest();                // code for IE7+, Firefox, Chrome, Opera, Safari
-                  }else{      
-                     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");// code for IE6, IE5
-                 }
+                   xmlhttp=new XMLHttpRequest();   // code for IE7+, Firefox, Chrome, Opera, Safari
+               }else{      
+                   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");// code for IE6, IE5
+               }
+            
+            (2).xmlhttp.open("请求类型(post/get)","请求地址(url)",是否异步(true/false)); //括号不要
+                xmlhttp.send();     //将请求发送到服务器
+                * post和get的区别：与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用
+                  以下情况建议post：
+                    * 无法使用缓存文件(更新服务器上的文件或数据库)
+                    * 向服务器发送大量数据(POST 没有数据量限制)
+                    * 发送包含未知字符的用户输入时,POST 比 GET 更稳定也更可靠
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
