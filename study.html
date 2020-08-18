@@ -226,9 +226,15 @@
     (5). dblclick() 双击事件
     (6). event.currentTarget 属性是在事件冒泡阶段内的当前 DOM 元素，通常等于 this
     (7). event.data 属性包含当前执行的处理程序被绑定时传递到事件方法的可选数据
-    (8). event.target 属性返回哪个 DOM 元素触发了事件       
+    (8). event.target 属性返回哪个 DOM 元素触发了事件      
             
+22. 获取当前点击的li标签的下标：$(event.target).index();
             
+23. 当元素隐藏事，图标向下，点击后，图标向上：
+            showMessage(event){      //定义一个鼠标事件方法，在需要点击的地方调用
+               $(event.target).children().toggleClass("newssjxparentbefore");  
+            }
             
+24.                     
             
             
