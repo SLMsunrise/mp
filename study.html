@@ -284,8 +284,23 @@
     vue中：子组件主动获取父组件的数据和方法
          (1).this.$parent.属性        //在子组件中直接使用即可
              this.$parent.方法   
-27.
             
+27.vue中：侦听子组件数据变动
+         <hostScanlist :ScanPortList="ScanPortList"></hostScanlist>//父组件中定义属性
+         子组件中就行侦听：
+         watch:{//监听
+              ScanPortList:{
+                  immediate:true,
+                      handler(newVal,oldVal) {
+                          console.log(newVal,oldVal)
+                          this.ScanPortListArr = newVal
+                          this.portScan()//监听数据变动就执行这个方法
+                      },
+                  deep:true,//深度监听
+              }
+        },
+   
+ 28. 
             
             
             
