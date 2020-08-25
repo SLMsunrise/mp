@@ -285,7 +285,7 @@
          (1).this.$parent.属性        //在子组件中直接使用即可
              this.$parent.方法   
             
-27.vue中：侦听子组件数据变动
+27. vue中：侦听子组件数据变动
          <hostScanlist :ScanPortList="ScanPortList"></hostScanlist>//父组件中定义属性
          子组件中就行侦听：
          watch:{//监听
@@ -300,10 +300,32 @@
               }
         },
    
- 28. 
-            
-            
-            
+ 28. vue中：使用vuex时，传递的数据刷新后丢失，采用sessionstorage方式存储数据
+         (1).在store中的index.js中加上如下的sessionStorage方法
+               function sessionStorage (state) {
+                    window.sessionStorage.setItem("store",JSON.stringify(state));
+               }     
+         (2).在export default new Vuex.Store({})下的mutations中定义:
+               savePrames(state,prames){
+                  state.prames = prames;
+                  sessionStorage(state);   //数据存储为sessionStorage中
+               },
+         (3).在数据传递到的子组件或组件的created中:
+               created () {
+                    const that=this;
+                    //在页面加载时读取localStorage里的状态信息
+                    sessionStorage.getItem("store") && this.$store.replaceState(Object.assign(this.$store.state,JSON.parse(sessionStorage.getItem("store"))));
+                    //在页面刷新时将vuex里的信息保存到localStorage里
+                    window.addEventListener("beforeunload",()=>{
+                        sessionStorage.setItem("store",JSON.stringify(this.$store.state))
+                    })
+                },
+          * 注意: vuex中的数据最好的方法应该放在计算属性中去取     
+            computed: {
+                prames() {
+                    return this.$store.state.prames
+                }
+             },       
             
             
             
