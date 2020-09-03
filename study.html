@@ -353,9 +353,21 @@
                 to   { opacity: 0.3; }
             }
 
- 30.           
-            
-            
+ 30. vue中异步数据获取放入data使用或是父组件调用子组件的异步数据
+     (1) that.$emit("listNumber",that.nubmberList)       //listNubmer为父组件接收的变量 that.nubmberList为组件要传的值
+     (2) <SmartData @listNumber="listNumberX"></SmartData> //父组件予用子组件时，绑定监听的方法       
+     (3) watch:{           //监听父组件中接收的变量
+            listNumber: {
+              handler (newVal, oldVal) {
+                this.listNumber = newVal
+              },
+              deep: true,
+              immediate: true
+            },
+          },       
+      (4) listNumberX(data){     //定义一个方法用于接收子组件传递的数据
+               this.listNumber=data
+          },      
             
             
             
