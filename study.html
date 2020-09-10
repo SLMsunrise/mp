@@ -353,7 +353,7 @@
                 to   { opacity: 0.3; }
             }
 
- 30. vue中异步数据获取放入data使用或是父组件调用子组件的异步数据
+30. vue中异步数据获取放入data使用或是父组件调用子组件的异步数据
      (1) that.$emit("listNumber",that.nubmberList)       //listNubmer为父组件接收的变量 that.nubmberList为组件要传的值
      (2) <SmartData @listNumber="listNumberX"></SmartData> //父组件予用子组件时，绑定监听的方法       
      (3) watch:{           //监听父组件中接收的变量
@@ -370,10 +370,20 @@
           },      
     
             
- 31. 查看控制台代理配置npm config list    
+31. 查看控制台代理配置npm config list    
      删除npm config delete proxy     
      npm install --save-dev @babel/core
      $ npm audit fix      //扫描您的项目中的漏洞，并自动安装任何兼容更新到易受攻击的依赖项
      $ npm audit --json   //获取JSON格式的详细审核报告
             
-            
+32. v-for的双重循环
+    <ul v-for="(item,index) in list" :key="index">
+       <li>
+          {{ item.name }}
+          <ul v-for="(i,cindex) in list[index].chrildList" :key="cindex">
+              <li>{{ i.chrildName }}</li>
+          </ul>
+       </li>
+    </ul>
+
+ 33           
