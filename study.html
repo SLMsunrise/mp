@@ -386,4 +386,6 @@
        </li>
     </ul>
 
- 33           
+ 33. 取浏览器中的localStrorage的数据，常用于用户信息等
+     const data1 = JSON.parse(localStorage.getItem('USER_MESSAGE'))  //取localstorage中用户的数据
+     console.log(data1.nickName);           
