@@ -389,3 +389,21 @@
  33. 取浏览器中的localStrorage的数据，常用于用户信息等
      const data1 = JSON.parse(localStorage.getItem('USER_MESSAGE'))  //取localstorage中用户的数据
      console.log(data1.nickName);           
+
+ 34. localStorage、sessionStorage操作
+      1、localStorage.setItem(key,value) // 保存数据
+      2、localStorage.getItem(key)       // 获取数据
+      3、localStorage.removeItem(key)    // 删除数据
+      4、localStorage.clear();           // 删除全部数据
+            
+ 35. 当需要多次遍历数组，对其赋值时，先判断没有数据时，再添加 
+      var slm=[];
+      var skb={a:"2",b:"4",c:"6",d:"8"}
+      for(let i in skb){
+      console.log(skb[i])
+          if(slm.length==0){
+              slm.push(skb[i])
+             }else{
+              slm=slm.concat(skb[i])
+           }
+      }
