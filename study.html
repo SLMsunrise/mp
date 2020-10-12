@@ -426,5 +426,19 @@
        background: linear-gradient(80deg, #0b595f, #00ffff, #0b595f);
    }
          
- 38.         
+ 38. table中，给td标签设置超出换行的效果
+      <table>
+         <tr>
+            <td width="10%"></td>
+         </tr>
+      </table>
+      table{
+         table-layout:flxed
+      }
+      table tr td{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          cursor: pointer;
+      }
          
