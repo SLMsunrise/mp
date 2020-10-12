@@ -426,7 +426,7 @@
        background: linear-gradient(80deg, #0b595f, #00ffff, #0b595f);
    }
          
- 38. table中，给td标签设置超出换行的效果
+38. table中，给td标签设置超出换行的效果
       <table>
          <tr>
             <td width="10%"></td>
@@ -442,3 +442,15 @@
           cursor: pointer;
       }
          
+39. 一个完整的jquery请求
+    $.ajax({
+        type: "GET",                // 请求类型
+        url: "packFileList",        // 请求地址
+        data: {taskId:that.taskId}, // 请求参数
+        dataType: "json",           // 数据类型
+        success: function(data){    // 成功之后的回调
+            console.log("显示打包文件：",data);
+        }
+    })
+         
+40.          
