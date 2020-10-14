@@ -453,4 +453,63 @@
         }
     })
          
-40.          
+40.      <script>
+        //兼容各版本
+        function createXHR(){
+            //判断浏览器版本是否将XMLHttpRequest作为本地对象；
+            if(typeof XMLHttpRequest!=="undefined"){
+                return new XMLHttpRequest();
+            }else if(typeof ActiveXObject!=="undefined"){
+                //将有可能出现的版本放在同一个数组内
+                var xhrArr=['Microsoft.XMLHTTP','MSXML2.XMLHTTP6.0','MSXML2.XMLHTTP5.0','MSXML2.XMLHTTP4.0','MSXML2.XMLHTTP3.0'];
+                //遍历创建XMLHttpRequest对象；
+                var len=xhrArr.length;
+                for(var i=0;i<len;i++){
+                    try{    //创建xml对象
+                        xhr=new ActiveXObject(xhrArr[i]);
+                        break;
+                    }catch(ex){
+
+                    }
+                }
+            }else{
+                throw new Error('no xhr');
+            }
+        }
+        //XMLHttpRequest对象（创建对象）
+        var xhr =createXHR(),data=null;
+        //响应XMLHttpRequest对象状态变化的函数,onreadystatechange在属性发生改变时触发；
+        xhr.onreadystatechange=function(){
+            //异步调用成功,响应内容解析完成，在客户端调用
+            if(xhr.readyState===4){
+                //status属性值：200、300、304
+                if(xhr.status>=200&&xhr.status<300||xhr.status===304){
+                    //获得服务器返回的数据
+                    // console.log(xhr.responseText);//字符串数据
+                    // console.log(eval("("+xhr.responseText+")"));//用eval()string,转为对象;
+                    // data=eval("("+xhr.responseText+")");
+                    // console.log(data.slm);
+                    // console.log(data.slmlovewcm);
+                    data =JSON.parse(xhr.responseText);
+                    //渲染数据到页面中
+                    // console.log(data.slmLove)
+                    renderDataToDom();
+                }
+            }
+        };
+        //创建请求
+        xhr.open("get","/slm.json",true);
+        //发送请求
+        xhr.send(null);
+        //渲染数据
+        function renderDataToDom() {
+            var img=data.slmLove,i,
+                len=img.length,
+                str="";
+            console.log(img);
+            for(i=0;i<len;i++){
+                str+='<p>'+img[i].name+'  '+img[i].sex+'</p>';
+            }
+            console.log(str);
+        }
+    </script>        
