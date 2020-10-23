@@ -595,3 +595,10 @@
             listData: resuleData.data,  // 这个return相当于把数据放在了data()中
         };
     },
+43.    //服务端渲染写法带参
+    async asyncData({ app,params }) {      // 哈哈哈异步数据处理就是这样啦
+        let resuleData = await app.$axios.post(`articleDetails.php`,{artid:params.details});
+        return {
+            listData: resuleData.data,  // 这个return相当于把数据放在了data()中
+        };
+    },
