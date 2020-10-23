@@ -558,3 +558,40 @@
         });
     </script>
 
+ 41. 普通的axios请求
+         // details(){
+        //     const that = this;
+        //     that.$axios({
+        //             method:'POST',
+        //             url:`articleDetails.php`,
+        //             data:{
+        //                 artid:that.artid,
+        //             }
+        //     })
+        //     .then((res) => {
+        //         if(res.data.data.length==0){
+
+        //         }else{
+        //             that.detailsCon=res.data.data;
+        //             this.dealwithUser();
+        //         }
+        //     })
+        // },
+        // dealwithUser(){ //后续可删
+        //     if(this.detailsCon!=null){
+        //         for(let i in this.detailsCon){
+        //             this.dealwith=this.detailsCon[i];
+        //         }
+        //     }else{
+
+        //     }
+        // }
+         
+ 42.
+         //服务端渲染写法
+    async asyncData({ app }) {      // 哈哈哈异步数据处理就是这样啦
+        let resuleData = await app.$axios.post(`article.php`);
+        return {
+            listData: resuleData.data,  // 这个return相当于把数据放在了data()中
+        };
+    },
