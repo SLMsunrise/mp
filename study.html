@@ -602,3 +602,20 @@
             listData: resuleData.data,  // 这个return相当于把数据放在了data()中
         };
     },
+44. // 复选框多选
+                         <li v-for="(item , index) in ldfldata" :key="index" :class="{'last_four_top_firstp':item.active}">
+                  <input type="checkbox" :id="item.val" :value="item.val"  v-model="exploitsnum" @click="changeChecked(index)">
+                  <label :for="item.val">
+                    <p class="flp ">
+                      <i :class="`engine ${item.ico}`" :id="`${item.val}`"></i>
+                    </p>
+                  </label>
+                  <p>{{item.name}}</p>
+                </li>
+         
+         data(){
+         
+         return{
+            exploitsnum:['web'],
+         }
+         }
